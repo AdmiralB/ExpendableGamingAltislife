@@ -1,0 +1,24 @@
+////////////////////////////////////////////////////////////////////////// 
+2 //                            Script Made By                            // 
+3 //                                MacRae                                // 
+4 //                                                                      // 
+5 //                                                                      // 
+6 //1.Place a Camping Chair on the map.                                   // 
+7 //                                                                      // 
+8 //2.Add this to the Camping chair Init:                                 // 
+9 //this addAction ["<t color='#0099FF'>Sit Down</t>","Chair\sitdown.sqf"]// 
+10 //                              4D6163526165                            // 
+11 ////////////////////////////////////////////////////////////////////////// 
+12 
+ 
+13 
+ 
+14 _chair = _this select 0;  
+15 _unit = _this select 1;  
+16 
+ 
+17 [[_unit, "Crew"], "MAC_fnc_switchMove"] spawn BIS_fnc_MP;  
+18 _unit setPos (getPos _chair);  
+19 _unit setDir ((getDir _chair) - 180);  
+20 standup = _unit addaction ["<t color='#0099FF'>Stand Up</t>","Chair\standup.sqf"]; 
+21 _unit setpos [getpos _unit select 0, getpos _unit select 1,((getpos _unit select 2) +1)]; 
